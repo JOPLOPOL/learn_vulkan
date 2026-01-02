@@ -5,12 +5,12 @@
 #include <iostream>
 #include <stdexcept>
 #include <cstdlib>
-#include <HelloTriangleApplicaiton.h>
+#include <HelloTriangleApplication.h>
 
 int main() {
-    HelloTriangleApplicaiton app;
-
-    try {
+    try
+    {
+        HelloTriangleApplication app;
         app.run();
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
