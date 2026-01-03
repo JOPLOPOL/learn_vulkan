@@ -13,10 +13,11 @@ class HelloTriangleApplication
     struct QueueFamilyIndices
     {
         std::optional<uint32_t> graphicsFamily;
+        std::optional<uint32_t> presentFamily;
 
         bool isComplete()
         {
-            return graphicsFamily.has_value();
+            return graphicsFamily.has_value() && presentFamily.has_value();
         }
     };
 
@@ -31,11 +32,15 @@ private:
     VkDevice device = VK_NULL_HANDLE;
 
     VkQueue graphicsQueue = VK_NULL_HANDLE;
+    VkQueue presentQueue = VK_NULL_HANDLE;
+
+    VkSurfaceKHR surface = VK_NULL_HANDLE;
 
     VkDebugUtilsMessengerEXT debugMessenger = VK_NULL_HANDLE;
 
     void initWindow();
     void createInstance();
+    void createSurface();
     void initVulkan();
     void mainLoop();
     void cleanup();
