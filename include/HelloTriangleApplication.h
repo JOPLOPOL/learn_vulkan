@@ -26,6 +26,12 @@ public:
 private:
     GLFWwindow* window = nullptr;
     VkInstance instance = VK_NULL_HANDLE;
+
+    VkPhysicalDevice physicalDevice = VK_NULL_HANDLE;
+    VkDevice device = VK_NULL_HANDLE;
+
+    VkQueue graphicsQueue = VK_NULL_HANDLE;
+
     VkDebugUtilsMessengerEXT debugMessenger = VK_NULL_HANDLE;
 
     void initWindow();
@@ -41,4 +47,5 @@ private:
     void pickPhysicalDevice();
     bool isDeviceSuitable(VkPhysicalDevice device);
     QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
+    void createLogicalDevice();
 };
